@@ -63,7 +63,7 @@ public class RegisterServlet extends HttpServlet {
 				+ registeredUser.getUserName() + ", " //
 				+ registeredUser.getUserPass() + "</li>");
 		out.println("</ul>");
-		out.println("<a href=\"/login.html\">Login</a> <br>");
+		out.println("<a href=\"/TechExercise/login.html\">Login</a> <br>");
 		out.println("</body></html>");
 	}
 
@@ -76,7 +76,7 @@ public class RegisterServlet extends HttpServlet {
 				"<head><title>" + title + "</title></head>\n" + //
 				"<body bgcolor=\"#f0f0f0\">\n" + //
 				"<h1 align=\"center\">" + title + "</h1>\n");
-		out.println("<a href=\"/register.html\">Register</a> <br>");
+		out.println("<a href=\"/TechExercise/register.html\">Register</a> <br>");
 		out.println("</body></html>");
 	}
 

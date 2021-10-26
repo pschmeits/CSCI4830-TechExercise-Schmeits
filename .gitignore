@@ -1,5 +1,8 @@
 # ignore objects and archives, anywhere in the tree
 #*.[oa]
+WebContent/WEB-INF/lib/
+bin/
 TechExercise.iml
 .*
 !.gitignore
+*.class
