@@ -26,8 +26,8 @@ public class User {
    @Column(name = "userName")
    private String userName;
    
-   @Column(name = "password")
-   private String password;
+   @Column(name = "userPass")
+   private String userPass;
 
    public User() {
 	  super();
