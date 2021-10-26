@@ -1,8 +1,22 @@
 # ignore objects and archives, anywhere in the tree
 #*.[oa]
-WebContent/WEB-INF/lib/
-bin/
+
+# Ignore Logs
+#logs
+#.log
+
+# Ignore the build directory
+bin/*
+/build
+*.class
+
+# Ignore lib directory
+/lib
+
+# Ignore IDE specific files
+.git/
+.idea/
+.settings/
 TechExercise.iml
 .*
 !.gitignore
-*.class
