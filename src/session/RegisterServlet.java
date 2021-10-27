@@ -1,3 +1,4 @@
+package session;
 
 
 import datamodel.User;
@@ -6,6 +7,8 @@ import util.UtilDB;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,42 +45,20 @@ public class RegisterServlet extends HttpServlet {
 			UtilDB.createUser(userName, userPass);
 			userRegistrationSuccess(response.getWriter(), userName);
 		}
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/register.html");
+		rd.include(request, response);
 	}
 
 	void userRegistrationSuccess(PrintWriter out, String userName) {
-		String title = "User Registered";
-		String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " + //
-				"transitional//en\">\n"; //
-		out.println(docType + //
-				"<html>\n" + //
-				"<head><title>" + title + "</title></head>\n" + //
-				"<body bgcolor=\"#f0f0f0\">\n" + //
-				"<h1 align=\"center\">" + title + "</h1>\n");
-		out.println("<ul>");
-		User registeredUser = UtilDB.lookupUser(userName).get(0);
-		System.out.println("[DBG] " + registeredUser.getId() + ", " //
-				+ registeredUser.getUserName() + ", "
-				+ registeredUser.getUserPass());
-
-		out.println("<li>" + registeredUser.getId() + ", " //
-				+ registeredUser.getUserName() + ", " //
-				+ registeredUser.getUserPass() + "</li>");
-		out.println("</ul>");
-		out.println("<a href=\"/TechExercise/login.html\">Login</a> <br>");
-		out.println("</body></html>");
+		out.println("<script type=\"text/javascript\">");  
+		out.println("alert('User Registered: " + userName + "');");  
+		out.println("</script>");
 	}
 
 	void userRegistrationFailed(PrintWriter out, String userName) {
-		String title = "Username: \"" + userName + "\" is Already Taken";
-		String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " + //
-				"transitional//en\">\n"; //
-		out.println(docType + //
-				"<html>\n" + //
-				"<head><title>" + title + "</title></head>\n" + //
-				"<body bgcolor=\"#f0f0f0\">\n" + //
-				"<h1 align=\"center\">" + title + "</h1>\n");
-		out.println("<a href=\"/TechExercise/register.html\">Register</a> <br>");
-		out.println("</body></html>");
+		out.println("<script type=\"text/javascript\">");  
+		out.println("alert('Username: \"" + userName + "\" is Already Taken');");  
+		out.println("</script>");
 	}
 
 	/**
